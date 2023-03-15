@@ -1,0 +1,17 @@
+sort1 uses: bubble sort
+
+How do you know?: we know that bubble sort has O(n^2) and Ω(n) so it takes more than merge sort in the worst case and less than merge sort
+and selection sort in the best case and that what we see in its running time.
+
+sort2 uses: merge sort
+
+How do you know?: merge sort has O(n log(n)) and Ω(n log(n)) so in the best case it takes almost the same step as the worse case
+but in the worst case its the faster comparing to selection sort and bubble sort and we can see this in its runnig time comparing to sort1 and sort3,
+while the best case bubble sort takes less step because it has Ω(n) and that what we observe in in the running time of sorted50000.
+
+sort3 uses: selection sort
+
+How do you know?: because of selection sort has O(n^2) and Ω(n^2) that's mean its worse case takes almost the same steps what takes its best case,
+moreover its best case takes steps more than bubble sort and merge sort while its worst case takes steps more than merge sort and that
+what we observe in its running time.
+
