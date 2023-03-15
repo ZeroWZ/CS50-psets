@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+
+    <table class="table table-bordered border-secondary table-hover">
+            <thead class="table-light">
+                <tr>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Shares</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for row in quote %}
+                <tr>
+                    <td>{{ row["symbol"] }}</td>
+                    <td>{{ row["name"] }}</td>
+
+                    {% for shares in rows %}
+                        {% if ( row["symbol"] == shares["symbol"]): %}
+                            <td>{{ shares["shares"] }}</td>
+                        {% endif %}
+                    {% endfor %}
+
+                    <td>{{ row["price"] | usd }}</td>
+
+                    {% for shares in rows %}
+                        {% if ( row["symbol"] == shares["symbol"]): %}
+                            <td>{{ (row["price"] * shares["shares"]) | usd }}</td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+
+        <div class="row justify-content-start">
+            <div class="col-lg-3 col-md-6 col-sm-">
+        <table class="table table-bordered border-secondary table-hover">
+            <tbody>
+            <tr>
+                <th class="table-dark"> Cash  </th>
+                <td>{{ cash | usd}}</td>
+                </tr>
+                <tr>
+                <th class="table-dark"> Total  </th>
+                <td>{{ total | usd }}</td>
+            </tr>
+            </tbody>
+        </table>
+        </div>
+        </div>
+        <!--<h3>Cash  {{ cash }}</h3>-->
+
+{% endblock %}

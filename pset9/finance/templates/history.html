@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+
+        <table class="table table-bordered border-secondary table-hover">
+            <thead class="table-light">
+                <tr>
+                    <th>Type</thls>
+                    <th>Name</th>
+                    <th>Symbol</th>
+                    <th>Shares</th>
+                    <th>Price</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for row in rows %}
+                    <tr>
+                        {% for x in row %}
+                            <td>{{ row[x] }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+
+{% endblock %}

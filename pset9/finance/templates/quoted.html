@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+
+        <table class="table table-bordered border-secondary table-hover">
+            <thead class="table-light">
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Symbol</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                {% for x in quote %}
+                    <td>{{ quote[x] }}</td>
+                {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+
+{% endblock %}

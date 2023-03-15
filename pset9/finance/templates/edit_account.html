@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Edit Account
+{% endblock %}
+
+{% block main %}
+<div id="div_x">
+    <h4>&#9654; Edit your personal information</h4>
+    <form action="/edit" method="post">
+        <div class="mb-3">
+            <label class="form-label">First name</label>
+            <input type="text" class="form-control" name="first_name" placeholder="First name">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Last name</label>
+            <input type="text" class="form-control" name="last_name" placeholder="Last name">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Age</label>
+            <input type="number" class="form-control" name="age" placeholder="Age">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Phone number</label>
+            <input type="number" class="form-control" name="phone_number" placeholder="Phone number">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Email address</label>
+            <input type="email" class="form-control" name="email" placeholder="Email">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Edit</button>
+    </form>
+
+    <h4 id="up">&#9654; Change your password</h4>
+
+    <form action="/change_password" method="post">
+        <div class="mb-3">
+            <label class="form-label">Current password</label>
+            <input type="password" class="form-control" name="current_password" placeholder="Current password">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">New password</label>
+            <input type="password" class="form-control" name="new_password" placeholder="New password">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Change password</button>
+    </form>
+</div>
+{% endblock %}

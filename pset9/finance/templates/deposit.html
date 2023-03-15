@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Deposit
+{% endblock %}
+
+{% block main %}
+    <div class="alert alert-warning" role="alert">
+        Our servers still under development, We accept credit/debit card only for now.
+    </div>
+    <h4>How mach you want to deposit?</h4>
+    <form action="/deposit" method="post">
+        <div class="row justify-content-md-center">
+        <div class="col-auto">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="cash" name="cash" type="number">
+        </div>
+        <div class="col-auto">
+            <select name="currency" class="form-select">
+                <option disabled selected value="">currency</option>
+                <option value="$"> $ </option>
+            </select>
+        </div>
+        </div>
+
+        <div id="form_Q">
+            <label><span class="nmoncd">Name on Card</span><input class="input_Q" name="nameoncard" type="text" placeholder="Lucious B. Byinshtuff"></label>
+            <label><span class="cdnum">Card Number <span>(Dashes not required)</span></span><input class="input_Q" name="cardnumber" type="text" placeholder="DONT-USEA-REAL-NMBR"></label>
+            <label class="exp"><span class="expdt">Exp. Date</span><input class="input_Q" name="experationdate" type="text" placeholder="MM/YYYY"></label>
+            <label class="cvv"><span class="cvvnum">CVV</span><input class="input_Q" name="cvv" type="text" placeholder="XXX"></label>
+            <button class="button_Q" type="submit">
+                Confirm
+            </button>
+        </div>
+    </form>
+
+
+{% endblock %}

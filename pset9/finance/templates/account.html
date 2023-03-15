@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Account
+{% endblock %}
+
+{% block main %}
+
+    <div id="div_x">
+        <h3>Account Information</h3>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>First name:</strong> {% if rows[0]["first_name"] %}{{rows[0]["first_name"]}}{% endif %}</li>
+            <li class="list-group-item"><strong>Last name:</strong> {% if rows[0]["last_name"] %}{{rows[0]["last_name"]}}{% endif %}</li>
+            <li class="list-group-item"><strong>Age:</strong> {% if rows[0]["age"] %}{{rows[0]["age"]}}{% endif %}</li>
+            <li class="list-group-item"><strong>Phone Number:</strong>  {% if rows[0]["phone_number"] %}{{rows[0]["phone_number"]}}{% endif %}</li>
+            <li class="list-group-item"><strong>Email:</strong> {% if rows[0]["email"] %}{{rows[0]["email"]}}{% endif %}</li>
+            <li class="list-group-item"><strong>Username:</strong> {{username}}</li>
+            <li class="list-group-item"><strong>Password:</strong> ******** <br><a href="/edit"><input class="btn btn-outline-warning" type="submit" value="Change Password"></a></li>
+            <li class="list-group-item"><strong>Cach:</strong> {{cash | usd }} <br><a href="/deposit"><input class="btn btn-outline-success" type="submit" value="Deposit"></a></li>
+            <li class="list-group-item"></li>
+        </ul>
+        <!--<hr>-->
+        <div class="col-auto">
+            <a href="/edit"><input class="btn btn-secondary form-control mx-auto w-auto" type="submit" value="Edit"></a>
+        </div>
+    </div>
+
+    <button type="button" id="myBtn" class="btn btn-danger">Delete Account</button>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal modal-dialog-scrollable">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Delete Account</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-danger" role="alert">
+                    <h4>Please make sure to withdraw all your cash before deleting your account.</h4>
+                </div>
+                <h5>All your information will be deleted.</h5>
+                <p>Are you sure you want to delete your account?</p>
+                <form action="/delete" method="post" id="form_X">
+                    <input class="button_M btn btn-danger" type="submit" name="delete" value="Yes">
+                </form>
+                <button type="button" class="button_M button_S btn btn-primary Close">No</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+      let modal = document.getElementById("myModal");
+      let btn = document.getElementById("myBtn");
+      let span = document.getElementsByClassName("close")[0];
+      let span_2 = document.getElementsByClassName("Close")[0];
+      btn.onclick = function() {
+        modal.style.display = "block";
+      }
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+      span_2.onclick = function() {
+        modal.style.display = "none";
+      }
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+    </script>
+
+
+
+{% endblock %}
